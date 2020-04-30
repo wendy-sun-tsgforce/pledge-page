@@ -21,39 +21,41 @@ import React from "react";
 // reactstrap components
 
 // core components
-import ShatterProofHeader from "components/Headers/ShatterProofHeader.js";
-import Pledge from 'components/Content/Pledge.js'
-import SignUp from 'components/Content/SignUp.js'
-import AllPledges from 'components/Content/AllPledges.js'
-import DemoFooter from "components/Footers/DemoFooter.js";
+import Pledge from './pledge';
+import ThankYou from './thank-you'
 
-// index sections
-import SectionButtons from "views/index-sections/SectionButtons.js";
-import SectionNavbars from "views/index-sections/SectionNavbars.js";
-import SectionNavigation from "views/index-sections/SectionNavigation.js";
-import SectionProgress from "views/index-sections/SectionProgress.js";
-import SectionNotifications from "views/index-sections/SectionNotifications.js";
-import SectionTypography from "views/index-sections/SectionTypography.js";
-import SectionJavaScript from "views/index-sections/SectionJavaScript.js";
-import SectionCarousel from "views/index-sections/SectionCarousel.js";
-import SectionNucleoIcons from "views/index-sections/SectionNucleoIcons.js";
-import SectionDark from "views/index-sections/SectionDark.js";
-import SectionLogin from "views/index-sections/SectionLogin.js";
-import SectionExamples from "views/index-sections/SectionExamples.js";
-import SectionDownload from "views/index-sections/SectionDownload.js";
+class Index extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      onSubmit: false
+    };
+    this.toggleSubmit = this.toggleSubmit.bind(this);
+  }
 
-function Index() {
-  return (
-    <>
-      <ShatterProofHeader />
-      <div className="main">
-        <Pledge />
-        <SignUp />
-        <AllPledges />
+  toggleSubmit() {
+    console.log("this is called");
+    this.setState(
+      {
+        onSubmit: !this.state.onSubmit
+      }
+    )
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="main">
+        {!this.state.onSubmit ?
+          <Pledge toggleSubmit={this.toggleSubmit}/>
+          :
+          <ThankYou />
+        }
+        </div>
       </div>
-      <DemoFooter />
-    </>
-  );
+    );
+  }
+
 }
 
 export default Index;

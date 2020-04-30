@@ -37,7 +37,7 @@ import {
   Col
 } from "reactstrap";
 
-function SectionButtons() {
+function SectionButtons(props) {
   return (
     <>
         <Container>
@@ -60,32 +60,6 @@ function SectionButtons() {
               <FormGroup>
                 <Label for="exampleSelect">Email</Label>
                 <Input type="email" name="email" id="exampleEmail" placeholder="example@abc.com" />
-              </FormGroup>
-            </Col>
-
-            <Col sm="3">
-              <FormGroup>
-              <Label for="exampleSelect">Phone Number</Label>
-                <Input placeholder="XXX-XXX-XXXX" type="text" />
-              </FormGroup>
-            </Col>
-
-            <Col sm="3">
-              <FormGroup>
-                <Label for="exampleSelect">Gender</Label>
-                <Input type="select" name="select" id="exampleSelect">
-                  <option>Male</option>
-                  <option>Female</option>
-                  <option>Gender fluid / Non-Binary</option>
-                  <option>Other</option>
-                </Input>
-              </FormGroup>
-            </Col>
-
-            <Col sm="3">
-              <FormGroup>
-              <Label for="exampleSelect">Organization</Label>
-                <Input placeholder="ex. JPMorgan & Chase" type="text" />
               </FormGroup>
             </Col>
 
@@ -127,7 +101,8 @@ function SectionButtons() {
 
             <Col sm="12" md={{ size: 4, offset: 4 }}>
             <br />
-            <Button color="danger" outline size="lg" type="button" className='full-width'>
+            <Button color="danger" outline size="lg" type="button" className='full-width'
+            onClick={() => props.toggleSubmit()}>
               Submit Your Pledge
             </Button>
             </Col>

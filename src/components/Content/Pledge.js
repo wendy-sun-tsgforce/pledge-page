@@ -29,7 +29,7 @@ import {Button, Input, InputGroup, FormGroup, Label, InputGroupText, Container,
 
 // core components
 
-function Pledge() {
+function Pledge(props) {
   return (
     <>
       <Container className="tim-container">
