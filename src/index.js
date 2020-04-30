@@ -25,7 +25,7 @@ import "assets/demo/demo.css";
 import "assets/scss/paper-kit.scss";
 
 // pages
-import Index from "views/index.js";
+import Index from "views/Index.js";
 
 // others
 
