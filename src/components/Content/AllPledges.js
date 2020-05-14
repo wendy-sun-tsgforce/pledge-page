@@ -42,29 +42,47 @@ import axios from 'axios';
 
 const tempOptions = [
   {
-    name: "Wendy Sun",
-    pledge: "I pledge to be more patient with more family when I educate them on the harm of addiction disease."
+  "pledgeId": 1,
+  "firstName": "Shaun",
+  "lastName": "Koss",
+  "likeCount": 16,
+  "pledgeBody": "Sample custom pledge"
   },
   {
-    name: "Wendy Ni",
-    pledge: "I pledge to be more patient with more family when I educate them on the harm of addiction disease."
+  "pledgeId": 2,
+  "firstName": "Gladyce",
+  "lastName": "Rolfson",
+  "likeCount": 0,
+  "pledgeBody": "Sample custom pledge"
   },
   {
-    name: "Vishal",
-    pledge: "This is a longer pledge and the card supports a longer length"
+  "pledgeId": 3,
+  "firstName": "Sammy",
+  "lastName": "McGlynn",
+  "likeCount": 10,
+  "pledgeBody": "Sample custom pledge"
   },
   {
-    name: "Wendy Sun",
-    pledge: "I pledge to be more patient with more family when I educate them on the harm of addiction disease."
+  "pledgeId": 5,
+  "firstName": "Robbie",
+  "lastName": "Willms",
+  "likeCount": 10,
+  "pledgeBody": "Sample custom pledge"
   },
   {
-    name: "Wendy Ni",
-    pledge: "I pledge to be more patient with more family when I educate them on the harm of addiction disease."
+  "pledgeId": 7,
+  "firstName": "Walker",
+  "lastName": "Ebert",
+  "likeCount": 10,
+  "pledgeBody": "Sample custom pledge"
   },
   {
-    name: "Vishal",
-    pledge: "This is a longer pledge and the card supports a longer length"
-  },
+  "pledgeId": 9,
+  "firstName": "Brain",
+  "lastName": "Tremblay",
+  "likeCount": 10,
+  "pledgeBody": "Sample custom pledge"
+  }
 ]
 
 class SignUp extends React.Component {
