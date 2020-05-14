@@ -16,7 +16,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import * as React from "react";
 // react plugin used to create switch buttons
 import Switch from "react-bootstrap-switch";
 // plugin that creates slider
@@ -38,70 +38,84 @@ import {
   Col
 } from "reactstrap";
 
-function SectionButtons() {
-  return (
-    <>
-    <Container className="tim-container">
-    <h2 className='align-center'>Check out + Join these pledges too!</h2>
-    <div style={{width: "100%", height: "30px"}}></div>
+import axios from 'axios';
 
-        <Container>
-          <Row>
-            <Col sm="4">
-              <Card body>
-                <CardTitle>Wendy Ni</CardTitle>
-                <CardText>I pledge to be more patient with more family when I
-                educate them on the harm of addiction disease.</CardText>
-                <Button>Sign this pledge!</Button>
-              </Card>
-            </Col>
-            <Col sm="4">
-              <Card body>
-                <CardTitle>Wendy Sun</CardTitle>
-                <CardText>I pledge to talk to my local lawmakers on how
-                we can make institutional changes to support the recovery process
-                and decriminalize addiction</CardText>
-                <Button>Sign this pledge!</Button>
-              </Card>
-            </Col>
-            <Col sm="4">
-              <Card body>
-                <CardTitle>Vishal</CardTitle>
-                <CardText>This is a longer pledge and the card supports a longer
-                length - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                viverra.</CardText>
-                <Button>Sign this pledge!</Button>
-              </Card>
-            </Col>
-          </Row>
+const tempOptions = [
+  {
+    name: "Wendy Sun",
+    pledge: "I pledge to be more patient with more family when I educate them on the harm of addiction disease."
+  },
+  {
+    name: "Wendy Ni",
+    pledge: "I pledge to be more patient with more family when I educate them on the harm of addiction disease."
+  },
+  {
+    name: "Vishal",
+    pledge: "This is a longer pledge and the card supports a longer length"
+  },
+  {
+    name: "Wendy Sun",
+    pledge: "I pledge to be more patient with more family when I educate them on the harm of addiction disease."
+  },
+  {
+    name: "Wendy Ni",
+    pledge: "I pledge to be more patient with more family when I educate them on the harm of addiction disease."
+  },
+  {
+    name: "Vishal",
+    pledge: "This is a longer pledge and the card supports a longer length"
+  },
+]
 
-          <Row>
-            <Col sm="4">
-              <Card body>
-                <CardTitle>Special Title Treatment</CardTitle>
-                <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                <Button>Sign this pledge!</Button>
-              </Card>
-            </Col>
-            <Col sm="4">
-              <Card body>
-                <CardTitle>Special Title Treatment</CardTitle>
-                <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                <Button>Sign this pledge!</Button>
-              </Card>
-            </Col>
-            <Col sm="4">
-              <Card body>
-                <CardTitle>Special Title Treatment</CardTitle>
-                <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                <Button>Sign this pledge!</Button>
-              </Card>
-            </Col>
-          </Row>
+class SignUp extends React.Component<{}, {}>{
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      listOfPledges: []
+    }
+  }
+
+  componentDidMount() {
+    // Make a request for a user with a given ID
+    axios.get('/user?ID=12345')
+      .then(function (response) {
+        // handle success
+        console.log(response);
+        this.setstate({
+          listOfPledges: response
+        })
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+  }
+
+  render() {
+    return (
+      <div>
+      <Container className="tim-container">
+      <h2 className='align-center'>Check out + Join these pledges too!</h2>
+      <div style={{width: "100%", height: "30px"}}></div>
+
+          <Container>
+            <Row>
+            {tempOptions.map((e) => (
+              <Col sm="4">
+                <Card body>
+                  <CardTitle>{e.name}</CardTitle>
+                  <CardText>{e.pledge}</CardText>
+                  <Button>Like this pledge!</Button>
+                </Card>
+              </Col>
+            ))}
+            </Row>
+          </Container>
         </Container>
-      </Container>
-    </>
-  );
+      </div>
+    );
+  }
 }
 
-export default SectionButtons;
+export default SignUp;

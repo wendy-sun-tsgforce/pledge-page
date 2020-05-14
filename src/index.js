@@ -21,7 +21,7 @@ import ReactDOM from "react-dom";
 
 // styles
 import "assets/css/bootstrap.min.css";
-import "assets/demo/demo.css";
+import "assets/css/pledge-page.css";
 import "assets/scss/paper-kit.scss";
 
 // pages

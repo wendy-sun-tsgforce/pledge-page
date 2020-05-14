@@ -40,7 +40,7 @@ import {
 function SectionButtons(props) {
   return (
     <>
-        <Container>
+        <Container className='mb-5'>
           <Row>
             <Col sm="3">
               <FormGroup>
@@ -70,17 +70,14 @@ function SectionButtons(props) {
               </FormGroup>
             </Col>
 
-            <br />
-            <Col sm="12">
-            <FormGroup check>
-              <Label check>
-                <Input defaultValue="" type="checkbox" />
-                I would like to receive newsletters and hear more from Shatterproof
-                <span className="form-check-sign" />
-              </Label>
-            </FormGroup>
+            <Col sm="3">
+              <FormGroup>
+              <Label for="exampleSelect">Organization</Label>
+                <Input placeholder="Optional" type="text" />
+              </FormGroup>
             </Col>
 
+            <br />
             <Col sm="12">
             <br />
             <FormGroup>
@@ -93,15 +90,24 @@ function SectionButtons(props) {
             <FormGroup check>
               <Label check>
                 <Input defaultValue="" type="checkbox" />
-                I allow Shatterproof to share my pledge on their social media pages
+                I allow Shatterproof to share my pledge on social media
                 <span className="form-check-sign" />
               </Label>
             </FormGroup>
             </Col>
-
+            <Col sm="12">
+            <FormGroup check>
+              <Label check>
+                <Input defaultValue="" type="checkbox" />
+                I would like to receive email updates from Shatterproof.
+                <span className="form-check-sign" />
+              </Label>
+            </FormGroup>
+            </Col>
             <Col sm="12" md={{ size: 4, offset: 4 }}>
             <br />
-            <Button color="danger" outline size="lg" type="button" className='full-width'
+            <Button color="shatterproof" outline size="lg" type="button"
+            className='w-100'
             onClick={() => props.toggleSubmit()}>
               Submit Your Pledge
             </Button>
@@ -109,8 +115,6 @@ function SectionButtons(props) {
           </Row>
           <br />
         </Container>
-        <div style={{width: "100%", height: "30px"}}></div>
-
     </>
   );
 }

@@ -1,0 +1,29 @@
+.btn-outline-shatterproof {
+  border-color: #F26722 !important;
+  color: #F26722 !important;
+  opacity: 1;
+  filter: alpha(opacity=100); }
+  .btn-outline-shatterproof:hover, .btn-outline-shatterproof:focus, .btn-outline-shatterproof:active, .btn-outline-shatterproof.active, .btn-outline-shatterproof:active:focus, .btn-outline-shatterproof:active:hover, .btn-outline-shatterproof.active:focus,
+  .show > .btn-outline-shatterproof.dropdown-toggle {
+    background-color: #F26722 !important;
+    color: white !important;
+    border-color: #F26722 !important; }
+    .btn-outline-shatterproof:hover .caret, .btn-outline-shatterproof:focus .caret, .btn-outline-shatterproof:active .caret, .btn-outline-shatterproof.active .caret, .btn-outline-shatterproof:active:focus .caret, .btn-outline-shatterproof:active:hover .caret, .btn-outline-shatterproof.active:focus .caret,
+    .show > .btn-outline-shatterproof.dropdown-toggle .caret {
+      border-top-color: rgba(255, 255, 255, 0.8); }
+  .btn-outline-shatterproof .caret {
+    border-top-color: #FFFFFF; }
+  .btn-outline-shatterproof.disabled, .btn-outline-shatterproof.disabled:hover, .btn-outline-shatterproof.disabled:focus, .btn-outline-shatterproof.disabled.focus, .btn-outline-shatterproof.disabled:active, .btn-outline-shatterproof.disabled.active, .btn-outline-shatterproof:disabled, .btn-outline-shatterproof:disabled:hover, .btn-outline-shatterproof:disabled:focus, .btn-outline-shatterproof:disabled.focus, .btn-outline-shatterproof:disabled:active, .btn-outline-shatterproof:disabled.active, .btn-outline-shatterproof[disabled], .btn-outline-shatterproof[disabled]:hover, .btn-outline-shatterproof[disabled]:focus, .btn-outline-shatterproof[disabled].focus, .btn-outline-shatterproof[disabled]:active, .btn-outline-shatterproof[disabled].active,
+  fieldset[disabled] .btn-outline-shatterproof,
+  fieldset[disabled] .btn-outline-shatterproof:hover,
+  fieldset[disabled] .btn-outline-shatterproof:focus,
+  fieldset[disabled] .btn-outline-shatterproof.focus,
+  fieldset[disabled] .btn-outline-shatterproof:active,
+  fieldset[disabled] .btn-outline-shatterproof.active {
+    background-color: transparent;
+    border-color: #F26722;
+  }
+
+.bg-shatterproof {
+  background-color: #60C5B7 !important
+}

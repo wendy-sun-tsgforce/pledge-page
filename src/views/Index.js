@@ -22,22 +22,32 @@ import React from "react";
 
 // core components
 import Pledge from './pledge';
-import ThankYou from './thank-you'
+import PledgeDisplay from './pledge-display';
+import ThankYou from './thank-you';
 
 class Index extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      onSubmit: false
+      onSubmit: false,
+      inputNewPledge: false
     };
     this.toggleSubmit = this.toggleSubmit.bind(this);
+    this.toggleSignPledge = this.toggleSignPledge.bind(this);
   }
 
   toggleSubmit() {
-    console.log("this is called");
     this.setState(
       {
         onSubmit: !this.state.onSubmit
+      }
+    )
+  }
+
+  toggleSignPledge() {
+    this.setState(
+      {
+        inputNewPledge: !this.state.inputNewPledge
       }
     )
   }
@@ -46,10 +56,22 @@ class Index extends React.Component {
     return (
       <div>
         <div className="main">
-        {!this.state.onSubmit ?
+        {!this.state.inputNewPledge ?
+          <PledgeDisplay toggleSignPledge={this.toggleSignPledge}/>
+          :
+          <div />
+        }
+
+        {this.state.inputNewPledge && !this.state.onSubmit ?
           <Pledge toggleSubmit={this.toggleSubmit}/>
           :
-          <ThankYou />
+          <div/>
+        }
+
+        {this.state.inputNewPledge && this.state.onSubmit ?
+          <ThankYou/>
+          :
+          <div/>
         }
         </div>
       </div>
