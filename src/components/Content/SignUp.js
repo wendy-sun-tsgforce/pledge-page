@@ -62,6 +62,7 @@ class SignUp extends React.Component{
     this.notificationSystem = React.createRef();
 
     this.submitForm = this.submitForm.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.showNotification = this.showNotification.bind(this);
     this.isEmpty = this.isEmpty.bind(this);
@@ -80,8 +81,11 @@ class SignUp extends React.Component{
     return typeof variable === 'undefined' || variable === '';
   }
 
+  handleSubmit() {
+    this.setState({isSubmitting: true}, this.submitForm);
+  }
+
   submitForm() {
-    this.setState({isSubmitting: true});
     console.log(this.state);
     let valid = true;
     if (this.isEmpty(this.state.firstName)){
@@ -135,9 +139,13 @@ class SignUp extends React.Component{
           } else {
             that.showNotification('error', 'Oh no! Something went wrong!');
           }
+        })
+        .finally(() => {
+          that.setState({isSubmitting: false});
         });
+    } else {
+      this.setState({isSubmitting: false});
     }
-    this.setState({isSubmitting: false});
   }
 
   handleInputChange(event) {
@@ -226,7 +234,7 @@ class SignUp extends React.Component{
             <br />
             <Button color="shatterproof" outline size="lg" type="button"
               className='w-100'
-              onClick={this.submitForm}
+              onClick={this.handleSubmit}
               disabled={this.state.isSubmitting}
             >
               Submit Your Pledge {this.state.isSubmitting ? <Spinner size="sm" color="primary" /> : <React.Fragment/> }
