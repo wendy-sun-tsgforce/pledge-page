@@ -122,21 +122,20 @@ class SignUp extends React.Component{
       headers.append('cache-control', 'no-cache');
       headers.append('Access-Control-Allow-Origin', '*');
       headers.append('Content-Type', 'application/json');
-      that.props.toggleSubmit();
-      // axios.post('http://localhost:8000/users/add', data, {headers: headers})
-      //   .then(function (response) {
-      //     // handle success
-      //     that.props.toggleSubmit();
-      //   })
-      //   .catch(function (error) {
-      //     // handle error
-      //     console.log(error);
-      //     if (error.response.status === 500) {
-      //       that.showNotification('error', error.response.data.detail);
-      //     } else {
-      //       that.showNotification('error', 'Oh no! Something went wrong!');
-      //     }
-      //   });
+      axios.post('http://localhost:8000/users/add', data, {headers: headers})
+        .then(function (response) {
+          // handle success
+          that.props.toggleSubmit();
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+          if (error.response.status === 500) {
+            that.showNotification('error', error.response.data.detail);
+          } else {
+            that.showNotification('error', 'Oh no! Something went wrong!');
+          }
+        });
     }
     this.setState({isSubmitting: false});
   }

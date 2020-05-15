@@ -117,9 +117,9 @@ class AllPledges extends React.Component {
       });
   }
 
-  // componentDidMount() {
-  //   this.refreshPledges();
-  // }
+  componentDidMount() {
+    this.refreshPledges();
+  }
 
   likePledge(pledgeId) {
     let that = this;
@@ -149,7 +149,7 @@ class AllPledges extends React.Component {
 
           <Container>
             <Row>
-            {tempOptions.map((e) => (
+            {this.state.listOfPledges.map((e) => (
               <Col sm="4">
                 <Card body>
                   <CardTitle>{`${e.firstName} ${e.lastName}`}</CardTitle>
