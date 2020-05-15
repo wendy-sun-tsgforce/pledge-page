@@ -44,7 +44,7 @@ import {
 } from "reactstrap";
 import { textChangeRangeIsUnchanged } from "typescript";
 
-class SectionButtons extends React.Component{
+class SignUp extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -58,7 +58,7 @@ class SectionButtons extends React.Component{
       newsletterSub: false,
       isSubmitting: false
     };
-    
+
     this.notificationSystem = React.createRef();
 
     this.submitForm = this.submitForm.bind(this);
@@ -154,7 +154,7 @@ class SectionButtons extends React.Component{
       });
     }
   }
-  
+
   render() {
     return (
         <Container className='mb-5'>
@@ -239,4 +239,4 @@ class SectionButtons extends React.Component{
   }
 }
 
-export default SectionButtons;
+export default SignUp;

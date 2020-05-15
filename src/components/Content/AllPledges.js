@@ -85,7 +85,7 @@ const tempOptions = [
   }
 ]
 
-class SignUp extends React.Component {
+class AllPledges extends React.Component {
 
   constructor(props) {
     super(props);
@@ -170,4 +170,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp;
+export default AllPledges;
