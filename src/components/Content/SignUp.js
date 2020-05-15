@@ -44,7 +44,7 @@ import {
 } from "reactstrap";
 import { textChangeRangeIsUnchanged } from "typescript";
 
-class SectionButtons extends React.Component{
+class SignUp extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -58,7 +58,7 @@ class SectionButtons extends React.Component{
       newsletterSub: false,
       isSubmitting: false
     };
-    
+
     this.notificationSystem = React.createRef();
 
     this.submitForm = this.submitForm.bind(this);
@@ -122,20 +122,21 @@ class SectionButtons extends React.Component{
       headers.append('cache-control', 'no-cache');
       headers.append('Access-Control-Allow-Origin', '*');
       headers.append('Content-Type', 'application/json');
-      axios.post('http://localhost:8000/users/add', data, {headers: headers})
-        .then(function (response) {
-          // handle success
-          that.props.toggleSubmit();
-        })
-        .catch(function (error) {
-          // handle error
-          console.log(error);
-          if (error.response.status === 500) {
-            that.showNotification('error', error.response.data.detail);
-          } else {
-            that.showNotification('error', 'Oh no! Something went wrong!');
-          }
-        });
+      that.props.toggleSubmit();
+      // axios.post('http://localhost:8000/users/add', data, {headers: headers})
+      //   .then(function (response) {
+      //     // handle success
+      //     that.props.toggleSubmit();
+      //   })
+      //   .catch(function (error) {
+      //     // handle error
+      //     console.log(error);
+      //     if (error.response.status === 500) {
+      //       that.showNotification('error', error.response.data.detail);
+      //     } else {
+      //       that.showNotification('error', 'Oh no! Something went wrong!');
+      //     }
+      //   });
     }
     this.setState({isSubmitting: false});
   }
@@ -154,7 +155,7 @@ class SectionButtons extends React.Component{
       });
     }
   }
-  
+
   render() {
     return (
         <Container className='mb-5'>
@@ -239,4 +240,4 @@ class SectionButtons extends React.Component{
   }
 }
 
-export default SectionButtons;
+export default SignUp;

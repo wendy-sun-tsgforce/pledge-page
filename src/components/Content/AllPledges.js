@@ -85,7 +85,7 @@ const tempOptions = [
   }
 ]
 
-class SignUp extends React.Component {
+class AllPledges extends React.Component {
 
   constructor(props) {
     super(props);
@@ -117,9 +117,9 @@ class SignUp extends React.Component {
       });
   }
 
-  componentDidMount() {
-    this.refreshPledges();
-  }
+  // componentDidMount() {
+  //   this.refreshPledges();
+  // }
 
   likePledge(pledgeId) {
     let that = this;
@@ -149,7 +149,7 @@ class SignUp extends React.Component {
 
           <Container>
             <Row>
-            {this.state.listOfPledges.map((e) => (
+            {tempOptions.map((e) => (
               <Col sm="4">
                 <Card body>
                   <CardTitle>{`${e.firstName} ${e.lastName}`}</CardTitle>
@@ -170,4 +170,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp;
+export default AllPledges;

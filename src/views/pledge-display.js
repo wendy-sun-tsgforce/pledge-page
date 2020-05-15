@@ -2,7 +2,7 @@
 import React from "react";
 // reactstrap components
 import {
-  Button, Row
+  Button, Row, Container
 } from "reactstrap";
 // reactstrap components
 
@@ -16,18 +16,18 @@ import DemoFooter from "components/Footers/DemoFooter.js";
 
 function PledgeDisplay(props) {
   return (
-    <>
-      <div className="main">
+    <Container className='h-100 d-flex align-items-center'>
+      <div className="main mt-5">
+        <AllPledges />
         <Row className='align-items-center justify-content-center'>
           <Button color="shatterproof" outline size="lg" type="button"
-          className='col-2'
+          className='col-3'
           onClick={() => props.toggleSignPledge()}>
-            Submit Your Pledge
+            Take the pledge now!
           </Button>
         </Row>
-        <AllPledges />
       </div>
-    </>
+    </Container>
   );
 }
 
