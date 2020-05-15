@@ -16,7 +16,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import * as React from "react";
+import React from "react";
 // react plugin used to create switch buttons
 import Switch from "react-bootstrap-switch";
 // plugin that creates slider
@@ -42,49 +42,97 @@ import axios from 'axios';
 
 const tempOptions = [
   {
-    name: "Wendy Sun",
-    pledge: "I pledge to be more patient with more family when I educate them on the harm of addiction disease."
+  "pledgeId": 1,
+  "firstName": "Shaun",
+  "lastName": "Koss",
+  "likeCount": 16,
+  "pledgeBody": "Sample custom pledge"
   },
   {
-    name: "Wendy Ni",
-    pledge: "I pledge to be more patient with more family when I educate them on the harm of addiction disease."
+  "pledgeId": 2,
+  "firstName": "Gladyce",
+  "lastName": "Rolfson",
+  "likeCount": 0,
+  "pledgeBody": "Sample custom pledge"
   },
   {
-    name: "Vishal",
-    pledge: "This is a longer pledge and the card supports a longer length"
+  "pledgeId": 3,
+  "firstName": "Sammy",
+  "lastName": "McGlynn",
+  "likeCount": 10,
+  "pledgeBody": "Sample custom pledge"
   },
   {
-    name: "Wendy Sun",
-    pledge: "I pledge to be more patient with more family when I educate them on the harm of addiction disease."
+  "pledgeId": 5,
+  "firstName": "Robbie",
+  "lastName": "Willms",
+  "likeCount": 10,
+  "pledgeBody": "Sample custom pledge"
   },
   {
-    name: "Wendy Ni",
-    pledge: "I pledge to be more patient with more family when I educate them on the harm of addiction disease."
+  "pledgeId": 7,
+  "firstName": "Walker",
+  "lastName": "Ebert",
+  "likeCount": 10,
+  "pledgeBody": "Sample custom pledge"
   },
   {
-    name: "Vishal",
-    pledge: "This is a longer pledge and the card supports a longer length"
-  },
+  "pledgeId": 9,
+  "firstName": "Brain",
+  "lastName": "Tremblay",
+  "likeCount": 10,
+  "pledgeBody": "Sample custom pledge"
+  }
 ]
 
-class SignUp extends React.Component<{}, {}>{
+class SignUp extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
       listOfPledges: []
     }
+    this.refreshPledges = this.refreshPledges.bind(this);
+    this.likePledge = this.likePledge.bind(this);
   }
 
-  componentDidMount() {
+  refreshPledges() {
+    let that = this;
+    const headers = new Headers();
+    headers.append('pragma', 'no-cache');
+    headers.append('cache-control', 'no-cache');
+    headers.append('Access-Control-Allow-Origin', '*');
     // Make a request for a user with a given ID
-    axios.get('/user?ID=12345')
+    return axios.get('http://localhost:8000/pledges', {headers: headers})
       .then(function (response) {
         // handle success
         console.log(response);
-        this.setstate({
-          listOfPledges: response
+        that.setState({
+          listOfPledges: response.data
         })
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }
+
+  componentDidMount() {
+    this.refreshPledges();
+  }
+
+  likePledge(pledgeId) {
+    let that = this;
+    const headers = new Headers();
+    headers.append('pragma', 'no-cache');
+    headers.append('cache-control', 'no-cache');
+    headers.append('Access-Control-Allow-Origin', '*');
+    // Make a request for a user with a given ID
+    axios.get(`http://localhost:8000/pledges/${pledgeId}/like`, {headers: headers})
+      .then(function (response) {
+        // handle success
+        console.log(response);
+        return that.refreshPledges();
       })
       .catch(function (error) {
         // handle error
@@ -101,12 +149,16 @@ class SignUp extends React.Component<{}, {}>{
 
           <Container>
             <Row>
-            {tempOptions.map((e) => (
+            {this.state.listOfPledges.map((e) => (
               <Col sm="4">
                 <Card body>
-                  <CardTitle>{e.name}</CardTitle>
-                  <CardText>{e.pledge}</CardText>
-                  <Button>Like this pledge!</Button>
+                  <CardTitle>{`${e.firstName} ${e.lastName}`}</CardTitle>
+                  <CardText>
+                    <p>{e.pledgeBody}</p>
+                    <br/>
+                    <p><b>{e.likeCount}</b> people liked this pledge!</p>
+                  </CardText>
+                  <Button onClick={()=>this.likePledge(e.pledgeId)}>Like this pledge!</Button>
                 </Card>
               </Col>
             ))}

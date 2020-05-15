@@ -18,7 +18,6 @@ function PledgeDisplay(props) {
   return (
     <>
       <div className="main">
-        <AllPledges />
         <Row className='align-items-center justify-content-center'>
           <Button color="shatterproof" outline size="lg" type="button"
           className='col-2'
@@ -26,6 +25,7 @@ function PledgeDisplay(props) {
             Submit Your Pledge
           </Button>
         </Row>
+        <AllPledges />
       </div>
     </>
   );

@@ -17,6 +17,7 @@
 
 */
 import React from "react";
+import axios from "axios";
 
 // reactstrap components
 import {Button, Input, InputGroup, FormGroup, Label, InputGroupText, Container,
@@ -29,9 +30,37 @@ import {Button, Input, InputGroup, FormGroup, Label, InputGroupText, Container,
 
 // core components
 
-function Pledge(props) {
-  return (
-    <>
+class Pledge extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      numPledges: 0
+    }
+  }
+
+  componentDidMount() {
+    let that = this;
+    const headers = new Headers();
+    headers.append('pragma', 'no-cache');
+    headers.append('cache-control', 'no-cache');
+    headers.append('Access-Control-Allow-Origin', '*');
+    // Make a request for a user with a given ID
+    return axios.get('http://localhost:8000/pledges', {headers: headers})
+      .then(function (response) {
+        // handle success
+        console.log(response);
+        that.setState({
+          numPledges: response.data.length
+        })
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }
+
+  render() {
+    return (
       <Container className="tim-container">
         <div id="typography">
           <Row>
@@ -52,7 +81,7 @@ function Pledge(props) {
           <Navbar className="bg-shatterproof w-100" expand="lg">
             <Container>
               <NavbarBrand href="#pablo" onClick={e => e.preventDefault()}>
-                Join # People and Sign the Pledge Today!
+                Join {this.state.numPledges} People and Sign the Pledge Today!
               </NavbarBrand>
             </Container>
           </Navbar>>
@@ -60,8 +89,8 @@ function Pledge(props) {
         </div>
         <br />
       </Container>
-    </>
-  );
+    );
+  }
 }
 
 export default Pledge;
