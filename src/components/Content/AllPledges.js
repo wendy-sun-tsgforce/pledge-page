@@ -103,7 +103,7 @@ class AllPledges extends React.Component {
     headers.append('cache-control', 'no-cache');
     headers.append('Access-Control-Allow-Origin', '*');
     // Make a request for a user with a given ID
-    return axios.get('http://localhost:8000/pledges', {headers: headers})
+    return axios.get(`${process.env.REACT_APP_API_URL}/pledges`, {headers: headers})
       .then(function (response) {
         // handle success
         console.log(response);
@@ -128,7 +128,7 @@ class AllPledges extends React.Component {
     headers.append('cache-control', 'no-cache');
     headers.append('Access-Control-Allow-Origin', '*');
     // Make a request for a user with a given ID
-    axios.get(`http://localhost:8000/pledges/${pledgeId}/like`, {headers: headers})
+    axios.get(`${process.env.REACT_APP_API_URL}/pledges/${pledgeId}/like`, {headers: headers})
       .then(function (response) {
         // handle success
         console.log(response);
@@ -149,14 +149,14 @@ class AllPledges extends React.Component {
 
           <Container>
             <Row>
-            {this.state.listOfPledges.map((e) => (
-              <Col sm="4">
+            {this.state.listOfPledges.map((e, index) => (
+              <Col sm="4" key={index}>
                 <Card body>
                   <CardTitle>{`${e.firstName} ${e.lastName}`}</CardTitle>
                   <CardText>
-                    <p>{e.pledgeBody}</p>
+                    {e.pledgeBody}
                     <br/>
-                    <p><b>{e.likeCount}</b> people liked this pledge!</p>
+                    <b>{e.likeCount}</b> people liked this pledge!
                   </CardText>
                   <Button onClick={()=>this.likePledge(e.pledgeId)}>Like this pledge!</Button>
                 </Card>

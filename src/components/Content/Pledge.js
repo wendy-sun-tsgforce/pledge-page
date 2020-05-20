@@ -45,7 +45,7 @@ class Pledge extends React.Component {
     headers.append('cache-control', 'no-cache');
     headers.append('Access-Control-Allow-Origin', '*');
     // Make a request for a user with a given ID
-    return axios.get('http://localhost:8000/pledges', {headers: headers})
+    return axios.get(`${process.env.REACT_APP_API_URL}/pledges/all`, {headers: headers})
       .then(function (response) {
         // handle success
         console.log(response);

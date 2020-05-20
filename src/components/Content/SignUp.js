@@ -54,7 +54,6 @@ class SignUp extends React.Component{
       zipcode: '',
       organization: '',
       customPledge: '',
-      shareOnMedia: false,
       newsletterSub: false,
       isSubmitting: false
     };
@@ -117,7 +116,6 @@ class SignUp extends React.Component{
         zipcode: this.state.zipcode,
         organization: this.state.organization,
         customPledge: this.state.customPledge,
-        shareOnMedia: this.state.shareOnMedia,
         newsletterSub: this.state.newsletterSub,
         pledged: true
       }
@@ -126,7 +124,7 @@ class SignUp extends React.Component{
       headers.append('cache-control', 'no-cache');
       headers.append('Access-Control-Allow-Origin', '*');
       headers.append('Content-Type', 'application/json');
-      axios.post('http://localhost:8000/users/add', data, {headers: headers})
+      axios.post(`${process.env.REACT_APP_API_URL}/users/add`, data, {headers: headers})
         .then(function (response) {
           // handle success
           that.props.toggleSubmit();
@@ -212,15 +210,6 @@ class SignUp extends React.Component{
             </FormGroup>
             </Col>
 
-            <Col sm="12">
-            <FormGroup check>
-              <Label check>
-                <Input id="shareOnMedia" name="shareOnMedia" type="checkbox" value={this.state.shareOnMedia} onChange={this.handleInputChange} />
-                I allow Shatterproof to share my pledge on social media
-                <span className="form-check-sign" />
-              </Label>
-            </FormGroup>
-            </Col>
             <Col sm="12">
             <FormGroup check>
               <Label check>
