@@ -3,10 +3,49 @@
 1.  Download the project's zip.
 2.  Make sure you have node.js (<https://nodejs.org/en/>) installed.
 3.  Type `npm install` in terminal/console in the source folder where `package.json` is located.
-4.  You will find all the branding colors inside `src/assets/scss/paper-kit/_variables.scss`. You can change them with a `HEX` value or with other predefined variables.
-5.  Change REACT_APP_API_URL in `.env` file to the location of the back-end server.
-6.  Run in terminal `npm start`. Also make sure the back-end server is running too.
-7.  If you want to deploy this to a server, run `npm run-script build`. This will compile code into minified JavaScript that can be deployed anywhere.
+4.  Change REACT_APP_API_URL in `.env` file to the location of the back-end server.
+5.  Run in terminal `npm start`. Also make sure the back-end server is running too.
+6.  If you want to deploy this to a server, run `npm run-script build`. This will compile code into minified JavaScript that can be deployed anywhere.
+
+## File Structure
+
+Within the download you'll find the following directories and files:
+```
+paper-kit-react
+
+├── README.md
+├── jsconfig.json
+├── package.json
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   └── manifest.json
+└── src
+    ├── index.js
+    ├── logo.svg
+    ├── assets
+    │   ├── css
+    │   │   ├── bootstrap.min.css
+    │   │   └── bootstrap.min.css.map
+    │   │   └── pledge-page.scss // add unique scss here
+    │   ├── fonts
+    │   ├── img
+    │   └── scss
+    ├── components
+    │   ├── Content // this has the individual sections + components
+    │   │   └── AllPledges.js
+    │   │   └── Pledge.js
+    │   │   └── SignUp.js
+    │   ├── Footers
+    │   │   └── DemoFooter.js
+    │   ├── Headers
+    │   │   ├── ShatterproofHeader.js
+    │   │   └── ProfilePageHeader.js
+    └── views // this has the complete pages
+        ├── Index.js // to navigate between the three pages
+        ├── pledge-display.js
+        ├── pledge.js
+        ├── thank-you.js
 
 ### React Hooks support
 
