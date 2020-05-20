@@ -46,6 +46,7 @@ paper-kit-react
         ├── pledge-display.js
         ├── pledge.js
         ├── thank-you.js
+  ```
 
 ### React Hooks support
 
