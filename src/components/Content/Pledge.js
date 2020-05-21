@@ -20,13 +20,10 @@ import React from "react";
 import axios from "axios";
 
 // reactstrap components
-import {Button, Input, InputGroup, FormGroup, Label, InputGroupText, Container,
-   Row, Col,  UncontrolledCollapse,
+import {Container,
+      Row,
      NavbarBrand,
-     Navbar,
-     NavItem,
-     NavLink,
-     Nav, } from "reactstrap";
+     Navbar} from "reactstrap";
 
 // core components
 
