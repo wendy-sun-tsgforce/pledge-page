@@ -5,9 +5,6 @@ import {Container, Row} from "reactstrap";
 
 // core components
 import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
-import Pledge from 'components/Content/Pledge.js'
-import AllPledges from 'components/Content/AllPledges.js'
-import DemoFooter from "components/Footers/DemoFooter.js";
 import {
   EmailIcon,
   FacebookIcon,

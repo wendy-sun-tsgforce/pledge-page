@@ -17,29 +17,19 @@
 
 */
 import React from "react";
-// react plugin used to create switch buttons
-import Switch from "react-bootstrap-switch";
-// plugin that creates slider
-import Slider from "nouislider";
 
 // reactstrap components
 import {
   Button,
-  Label,
-  FormGroup,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
   Container,
   Card, CardTitle, CardText,
-  NavbarBrand, Navbar,
   Row,
   Col
 } from "reactstrap";
 
 import axios from 'axios';
 
+// can be used for testing in place of this.state.listOfPledges
 const tempOptions = [
   {
   "pledgeId": 1,
@@ -144,7 +134,7 @@ class AllPledges extends React.Component {
     return (
       <div>
       <Container className="tim-container">
-      <h2 className='align-center'>Check out + Join these pledges too!</h2>
+      <h2 className='align-center'>Check out these pledges!</h2>
       <div style={{width: "100%", height: "30px"}}></div>
 
           <Container>

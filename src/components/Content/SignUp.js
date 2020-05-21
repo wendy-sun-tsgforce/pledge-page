@@ -17,10 +17,6 @@
 
 */
 import React from "react";
-// react plugin used to create switch buttons
-import Switch from "react-bootstrap-switch";
-// plugin that creates slider
-import Slider from "nouislider";
 // helpful notification handler
 import NotificationSystem from 'react-notification-system';
 // http request
@@ -30,19 +26,13 @@ import axios from 'axios';
 import {
   Button,
   Label,
-  Form,
   FormGroup,
   Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
   Container,
-  Card, CardTitle, CardText,
   Row,
   Col,
   Spinner
 } from "reactstrap";
-import { textChangeRangeIsUnchanged } from "typescript";
 
 class SignUp extends React.Component{
   constructor(props) {
@@ -228,6 +218,11 @@ class SignUp extends React.Component{
             >
               Submit Your Pledge {this.state.isSubmitting ? <Spinner size="sm" color="primary" /> : <React.Fragment/> }
             </Button>
+            <br />
+            </Col>
+            <Col sm="12">
+            <br />
+              <p>* By submitting your stories and/or images you agree to allow Shatterproof to use the contents on its website, social media, and other materials. By providing Shatterproof with this non-exclusive, worldwide and perpetual right, you do not cede or assign your copyright in the materials you submit. <a href="https://www.shatterproof.org/privacy-policy">Privacy Policy</a>. If you have any questions or concerns, email us at <a href = "info@shatterproof.org">info@shatterproof.org</a></p>
             </Col>
           </Row>
           <br />
